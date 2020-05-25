@@ -48,12 +48,30 @@ public class hackerrank extends HttpServlet {
 		option.addArguments("disable-notifications");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		String url = "https://www.hackerrank.com/auth/login?h_l=body_middle_left_button&h_r=login";
+		String url ="http://www.hackerrank.com/";
 		driver.get(url);
+		driver.findElement(By.id("menu-item-2887")).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.findElement(By.xpath("//*[@id=\"post-175\"]/div/div/div[1]/div/div/div[2]/div[2]/div/div[4]/div/div/a/span")).click();;
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.findElement(By.id("input-1")).sendKeys(mail);
  	    driver.findElement(By.id("input-2")).sendKeys(password+Keys.ENTER);
- 	   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+ 	    //Thread.sleep(5000);
+ 	    driver.findElement(By.xpath("//*[@id=\"base-card-2-link\"]/div/span")).click();
+ 	    try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 	    driver.findElement(By.xpath("//*[@id=\"new-challenge-list\"]/div/div/section[2]/div/div/div/section/div[1]/div[2]/div/ul/li[2]/div/div/label")).click();
+ 	    	
+ 	    driver.findElement(By.xpath("//*[@id=\"contest-challenges-problem\"]/div/div/div[2]/div/div/button/div/span")).click();	
  	  writer.println("<body style='text-align:center;background:lightgrey'><h4>Hello " +mail +" opening your hackerrank"+ "</h4></body>");
 		writer.close();
  	   

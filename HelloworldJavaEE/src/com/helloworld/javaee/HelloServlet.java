@@ -63,18 +63,18 @@ public class HelloServlet extends HttpServlet {
  		driver.findElement(By.xpath("//input[@class='_1frb']")).sendKeys(friendName+Keys.ENTER);
         //List<WebElement>sl=driver.findElements(By.xpath("//*[@class='_19bk']"));
         // sl.get(0).click();
-         List<WebElement>nl=driver.findElements(By.xpath("//a[@data-ft='{\"tn\":\"-]\"}']"));
+ 		 List<WebElement>nl=driver.findElements(By.xpath("//a[@data-ft='{\"tn\":\"-]\"}']"));
          nl.get(0).click();
          String c=driver.getCurrentUrl();
          driver.get(c);
          JavascriptExecutor js=(JavascriptExecutor)driver;
- 		js.executeScript("window.scrollBy(0,40000)", "");
- 		try {
-			Thread.sleep(1100);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+         try {
+ 			Thread.sleep(1100);
+ 		} catch (InterruptedException e) {
+ 			// TODO Auto-generated catch block
+ 			e.printStackTrace();
+ 		}
+ 		js.executeScript("window.scrollBy(0,4000)", "");
  		//js.executeScript("window.scrollBy(0,4000)", "");
  	    List<WebElement> like = driver.findElements(By.xpath("//div[@class='_666k']//div[@class='_8c74']"));
  	    System.out.println(like.size());
